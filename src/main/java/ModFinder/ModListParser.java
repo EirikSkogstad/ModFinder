@@ -1,6 +1,11 @@
 package ModFinder;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static ModFinder.Values.MOD_ID;
+import static ModFinder.Values.MOD_INSTALLED_NAME;
+import static ModFinder.Values.SEPARATOR_CHAR;
 
 public class ModListParser
 {
@@ -19,19 +24,29 @@ public class ModListParser
     }
 
     private void validateInput(String input) {
-
+        //TODO validate input better.
     }
 
-
     private void parseMods(String[] lines) {
+        mods = new ArrayList<>();
+        int modNameIndex = csvFormat.getColumnNumber(MOD_INSTALLED_NAME);
+        int modIdIndex = csvFormat.getColumnNumber(MOD_ID);
 
+        for (String line : lines) {
+            String[] modValues = line.split(SEPARATOR_CHAR);
+            Mod mod = new Mod(
+                    Integer.parseInt(modValues[modIdIndex]),
+                    modValues[modNameIndex]
+            );
+            mods.add(mod);
+        }
     }
 
     private String[] getLinesFromString(String string) {
-        String[] split = string.split(System.lineSeparator());
+        return string.split(System.lineSeparator());
     }
 
-    public List<Mod> void getMods() {
-
+    public List<Mod> getMods() {
+        return mods;
     }
 }

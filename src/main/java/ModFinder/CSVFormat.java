@@ -23,8 +23,7 @@ public class CSVFormat
         }
     }
 
-    public Optional<Integer> getColumnNumber(String columnTitle) {
-        Integer columnNumber = columnTitles.get(columnTitle);
-        return Optional.ofNullable(columnNumber);
+    public Integer getColumnNumber(String columnTitle) {
+        return columnTitles.get(columnTitle);
     }
 }
