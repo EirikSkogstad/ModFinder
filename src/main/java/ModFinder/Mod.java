@@ -1,38 +1,29 @@
 package ModFinder;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import static ModFinder.Values.*;
+import static ModFinder.Values.NEXUS_URL;
 
 public class Mod
 {
     private int id;
     private String installedName;
     private String game;
-    private URI nexusmodsURI;
+    private String nexusmodsURI;
 
-    public Mod(int id, String installedName) throws URISyntaxException {
+    public Mod(int id, String installedName) {
         this.id = id;
         this.installedName = installedName;
         generateNexusURI();
     }
 
-    public Mod(int id, String installedName, String game) throws URISyntaxException {
+    public Mod(int id, String installedName, String game) {
         this.id = id;
         this.installedName = installedName;
         this.game = game;
         generateNexusURI();
     }
 
-    private void generateNexusURI() throws URISyntaxException {
-        String URIString = NEXUS_URL + "/" + game + "/mods/" + id;
-        nexusmodsURI = new URI(URIString);
-    }
-
-    public void setGame(String game) throws URISyntaxException {
-        this.game = game;
-        generateNexusURI();
+    private void generateNexusURI() {
+        nexusmodsURI = NEXUS_URL + "/" + game + "/mods/" + id;
     }
 
     public int getId() {
@@ -47,7 +38,12 @@ public class Mod
         return game;
     }
 
-    public URI getNexusmodsURI() {
+    public void setGame(String game) {
+        this.game = game;
+        generateNexusURI();
+    }
+
+    public String getNexusmodsURI() {
         return nexusmodsURI;
     }
 }
