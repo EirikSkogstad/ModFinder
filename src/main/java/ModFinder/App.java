@@ -1,9 +1,7 @@
 package ModFinder;
 
-import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
+import java.net.URI;
+import java.util.List;
 
 import static ModFinder.Values.*;
 
@@ -11,7 +9,6 @@ public class App
 {
     public static void main(String[] args) {
         String option = args[0];
-        String optionClipboard = OPTION_CLIPBOARD;
 
         switch (option) {
             case OPTION_CLIPBOARD:
@@ -27,18 +24,18 @@ public class App
     }
 
     private static void openFromClipboard() {
-        String clipboardString = getStringFromClipboard();
+        String clipboardString = DesktopHandler.getStringFromClipboard();
         ModListParser modListParser = new ModListParser(clipboardString);
+        List<Mod> mods = modListParser.getMods();
+
+        mods.stream()
+                .map(Mod::getNexusmodsURI)
+                .map(URI::create)
+                .forEach(DesktopHandler::openWebPage);
+        System.exit(0);
     }
 
-    private static String getStringFromClipboard() {
-        try {
-            return (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
-        } catch (UnsupportedFlavorException | IOException e) {
-            System.exit(0);
-        }
-        return "";
-    }
+
 
     private static void openFromPathString(String path) {
 

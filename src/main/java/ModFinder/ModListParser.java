@@ -32,7 +32,9 @@ public class ModListParser
         int modNameIndex = csvFormat.getColumnNumber(MOD_INSTALLED_NAME);
         int modIdIndex = csvFormat.getColumnNumber(MOD_ID);
 
-        for (String line : lines) {
+        // From 1 since we don't need the format line.
+        for (int i = 1; i < lines.length; i++) {
+            String line = lines[i];
             String[] modValues = line.split(SEPARATOR_CHAR);
             Mod mod = new Mod(
                     Integer.parseInt(modValues[modIdIndex]),
