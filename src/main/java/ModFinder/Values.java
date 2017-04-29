@@ -8,6 +8,7 @@ public class Values
     public static final String NEXUS_URL = "http://www.nexusmods.com";
     public static final String MOD_ID = "mod_id";
     public static final String MOD_INSTALLED_NAME = "mod_installed_name";
+    public static final String LINE_BREAK = "\n";
 
     private Values() {
 

@@ -11,8 +11,10 @@ public class ModListParser
 {
     private CSVFormat csvFormat;
     private List<Mod> mods;
+    private String game;
 
-    public ModListParser(String rawData) {
+    public ModListParser(String rawData, String game) {
+        this.game = game;
         initializeParser(rawData);
     }
 
@@ -38,14 +40,15 @@ public class ModListParser
             String[] modValues = line.split(SEPARATOR_CHAR);
             Mod mod = new Mod(
                     Integer.parseInt(modValues[modIdIndex]),
-                    modValues[modNameIndex]
+                    modValues[modNameIndex],
+                    game
             );
             mods.add(mod);
         }
     }
 
     private String[] getLinesFromString(String string) {
-        return string.split(System.lineSeparator());
+        return string.split(Values.LINE_BREAK);
     }
 
     public List<Mod> getMods() {

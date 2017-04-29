@@ -7,8 +7,10 @@ import static ModFinder.Values.*;
 
 public class App
 {
+    private static String game;
     public static void main(String[] args) {
         String option = args[0];
+        game = args[1];
 
         switch (option) {
             case OPTION_CLIPBOARD:
@@ -25,7 +27,7 @@ public class App
 
     private static void openFromClipboard() {
         String clipboardString = DesktopHandler.getStringFromClipboard();
-        ModListParser modListParser = new ModListParser(clipboardString);
+        ModListParser modListParser = new ModListParser(clipboardString, game);
         List<Mod> mods = modListParser.getMods();
 
         mods.stream()
