@@ -6,3 +6,4 @@ and finds these mods in NexusMods website.
 * Get mod raw data from clipboard.
 * Retry mods in different URL based on if mod cannot be found for that game. (404)
 * Support reading of files stored on computer
+* Browse and download using Selenium.
