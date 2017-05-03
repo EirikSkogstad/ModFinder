@@ -6,9 +6,9 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import java.net.URI;
 
-public class DesktopHandler
+class DesktopHandler
 {
-    public static void openWebPage(URI uri) {
+    static void openWebPage(URI uri) {
         Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
         if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
             try {
@@ -19,7 +19,7 @@ public class DesktopHandler
         }
     }
 
-    public static String getStringFromClipboard() {
+    static String getStringFromClipboard() {
         try {
             return (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
         } catch (UnsupportedFlavorException | IOException e) {
