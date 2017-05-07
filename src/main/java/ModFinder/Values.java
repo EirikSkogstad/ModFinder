@@ -20,6 +20,6 @@ public class Values
     ));
 
     private Values() {
-
+        // No need for a constructor here.
     }
 }
