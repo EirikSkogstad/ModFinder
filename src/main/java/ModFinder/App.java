@@ -30,10 +30,11 @@ public class App
         ModListParser modListParser = new ModListParser(clipboardString, game);
         List<Mod> mods = modListParser.getMods();
 
-        mods.stream()
-                .map(Mod::getNexusmodsURI)
-                .map(URI::create)
-                .forEach(DesktopHandler::openWebPage);
+        for (Mod mod : mods) {
+            String nexusUrl = mod.getNexusUrl();
+            URI uri = URI.create(nexusUrl);
+            DesktopHandler.openWebPage(uri);
+        }
         System.exit(0);
     }
 

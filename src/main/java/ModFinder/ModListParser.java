@@ -40,8 +40,8 @@ public class ModListParser
             String[] modValues = line.split(SEPARATOR_CHAR);
             Mod mod = new Mod(
                     Integer.parseInt(modValues[modIdIndex]),
-                    modValues[modNameIndex],
-                    game
+                    game,
+                    modValues[modNameIndex]
             );
             mods.add(mod);
         }
