@@ -1,4 +1,4 @@
-package ModFinder;
+package ModFinder.Java;
 
 import java.util.Arrays;
 import java.util.HashSet;

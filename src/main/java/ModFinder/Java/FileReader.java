@@ -1,4 +1,4 @@
-package ModFinder;
+package ModFinder.Java;
 
 public class FileReader
 {

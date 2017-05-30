@@ -1,11 +1,13 @@
-package ModFinder;
+package ModFinder.Java;
+
+import ModFinder.Mod;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ModFinder.Values.MOD_ID;
-import static ModFinder.Values.MOD_INSTALLED_NAME;
-import static ModFinder.Values.SEPARATOR_CHAR;
+import static ModFinder.Java.Values.MOD_ID;
+import static ModFinder.Java.Values.MOD_INSTALLED_NAME;
+import static ModFinder.Java.Values.SEPARATOR_CHAR;
 
 public class ModListParser
 {

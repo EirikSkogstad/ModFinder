@@ -1,9 +1,11 @@
-package ModFinder;
+package ModFinder.Java;
+
+import ModFinder.Mod;
 
 import java.net.URI;
 import java.util.List;
 
-import static ModFinder.Values.*;
+import static ModFinder.Java.Values.*;
 
 public class App
 {

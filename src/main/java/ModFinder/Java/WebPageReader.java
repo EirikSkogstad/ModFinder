@@ -1,4 +1,4 @@
-package ModFinder;
+package ModFinder.Java;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

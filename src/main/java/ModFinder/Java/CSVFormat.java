@@ -1,9 +1,8 @@
-package ModFinder;
+package ModFinder.Java;
 
 import java.util.HashMap;
-import java.util.Optional;
 
-import static ModFinder.Values.*;
+import static ModFinder.Java.Values.*;
 
 public class CSVFormat
 {

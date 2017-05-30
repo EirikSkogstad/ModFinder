@@ -1,4 +1,4 @@
-package ModFinder;
+package ModFinder.Java;
 
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
